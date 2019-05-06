@@ -58,11 +58,11 @@ form.addEventListener("submit", function(e) {
 
     if (e.target.title.value.toLowerCase() === currentSong.song_title.toLowerCase() || e.target.artist.value.toLowerCase() === currentSong.artist.toLowerCase()) {
         console.log("correct")
-        // getNewSong()
+        getNewSong()
     }
     else {
         console.log("nope")
-        // removeLife()
+        removeLife()
     }
 })
 
@@ -85,7 +85,9 @@ function resetLives() {
 }
 
 function getNewSong() {
-
+    form.reset()
+    currentSong = data[Math.floor(Math.random() * data.length)];
+    populateLyrics()
 }
 
 function endGame() {
