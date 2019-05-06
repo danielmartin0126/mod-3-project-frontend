@@ -1,0 +1,24 @@
+.Container {
+    border: 1px solid black;
+}
+
+.Playarea {
+    border: 1px solid black;
+}
+
+.Lyrics {
+    border: 1px solid black;
+}
+
+.Inputs {
+    border: 1px solid black;
+}
+.Incorrect {
+    border-style: solid;
+    border-color: red;
+}
+
+.hearts {
+    max-width: 40px;
+    /* max-height: 40px; */
+}
