@@ -27,6 +27,7 @@ const form = document.querySelector("#form")
 let warning = document.createElement("h2")
 let scoreElement = document.querySelector("#current_score")
 let hiScoreDiv = document.querySelector(".hiscores")
+let leaderDiv = document.querySelector("#leaders")
 
 
 /*****************************************************************************
@@ -207,9 +208,9 @@ function compare(a, b) {
 
 function renderHiScores() {
     topTen = users.slice(0, 10)
-    hiScoreDiv.innerHTML = ""
+    leaderDiv.innerHTML = ""
     topTen.forEach((u, i) => {
-        hiScoreDiv.innerHTML += `
+        leaderDiv.innerHTML += `
             <div id="rank${i+1}">
                 <p>${u.name}</p>
                 <p>#${i+1}</p>
