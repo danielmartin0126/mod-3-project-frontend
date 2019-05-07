@@ -22,3 +22,16 @@
     max-width: 40px;
     /* max-height: 40px; */
 }
+
+div[id^='rank'], div[id*='rank']{
+    display: flex;
+    justify-content: space-between;
+}
+
+div[id^='rank'], div[id*='rank']>p {
+    font-weight: bold;
+}
+
+.hiscores {
+    text-align: center;
+}

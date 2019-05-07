@@ -70,8 +70,8 @@ function renderHiScores() {
   topTen.forEach((u, i) => {
     leaderDiv.innerHTML += `
     <div id="rank${i+1}">
+      <p>${i+1}</p>
       <p>${u.name}</p>
-      <p>#${i+1}</p>
       <p>${u.score}</p>
     </div>
     `
@@ -160,8 +160,8 @@ function populateLyrics() {
   //    test_title.innerText = currentSong["song_title"]
   //    test_artist.innerText = currentSong.artist
   splitSong = currentSong.content.split("\n")
-  line1.innerText = `${splitSong[0]}`
-  line2.innerText = `${splitSong[1]}`
+  line1.innerText = `♪ ${splitSong[0]} ♪`
+  line2.innerText = `♫ ${splitSong[1]} ♫`
 }
 
 function getNewSong() {
