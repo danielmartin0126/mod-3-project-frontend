@@ -22,3 +22,7 @@
     max-width: 40px;
     /* max-height: 40px; */
 }
+
+#leaders span{
+  padding: 30px;
+}
