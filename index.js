@@ -1,6 +1,6 @@
 /*****************************************************************************
- * All of our variables and data.
- ****************************************************************************/
+* All of our variables and data.
+****************************************************************************/
 
 // Declaring GLOBAL CONSTANTS
 const LYRICS_URL = "http://localhost:3000/api/v1/lyrics";
@@ -31,8 +31,8 @@ let leaderDiv = document.querySelector("#leaders")
 
 
 /*****************************************************************************
- * On load fetch actions
- ****************************************************************************/
+* On load fetch actions
+****************************************************************************/
 // Initial Fetch that gets the starting song
 // fetch('http://localhost:3000/api/v1/lyrics')
 //   .then(response => response.json())
@@ -41,58 +41,93 @@ let leaderDiv = document.querySelector("#leaders")
 //       getNewSong()
 //   })
 //   .then(populateLyrics) //end of GET all Songs FETCH
-fetchHiScores()
-// renderHiScores()
+function fetchHiScores() {
+  fetch('http://localhost:3000/api/v1/users')
+    .then(response => response.json())
+    .then(function (myJson) {
+      users = myJson
+      users.sort(compare)
+      renderHiScores()
+    })
+}
 
+function compare(a, b) {
+  const scoreA = a.score;
+  const scoreB = b.score
+
+  let comparison = 0;
+  if (scoreA < scoreB) {
+    comparison = 1;
+  } else if (scoreA > scoreB) {
+    comparison = -1;
+  }
+  return comparison;
+}
+
+function renderHiScores() {
+  topTen = users.slice(0, 10)
+  leaderDiv.innerHTML = ""
+  topTen.forEach((u, i) => {
+    leaderDiv.innerHTML += `
+    <div id="rank${i+1}">
+      <p>${u.name}</p>
+      <p>#${i+1}</p>
+      <p>${u.score}</p>
+    </div>
+    `
+  })
+}
+
+fetchHiScores()
 
 /*****************************************************************************
- * Event Listeners
- ****************************************************************************/
- startDiv.addEventListener("submit", function(e) {
-    e.preventDefault()
-    currentUser.name = e.target.name.value
-    fetch(USERS_URL, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(currentUser)
-    })
-    .then(response => response.json())
-    .then(response => currentUser ={...currentUser, ...response})
-    .then(startGame) //end of POST new User FETCH
+* Event Listeners
+****************************************************************************/
+startDiv.addEventListener("submit", function(e) {
+  e.preventDefault()
+  currentUser.name = e.target.name.value
+  fetch(USERS_URL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(currentUser)
+  })
+  .then(response => response.json())
+  .then(response => currentUser ={...currentUser, ...response})
+  .then(startGame) //end of POST new User FETCH
 }) //end submit username input event listener
 
 form.addEventListener("submit", function(e) {
-    e.preventDefault()
-    // debugger
-    if (e.target.artist.value.toLowerCase() === currentSong.artist.toLowerCase()) {
-        console.log("artist correct")
-        currentUser.current_score += 50
-    } else {
-        console.log("artist wrong you suck");
-    }
+  e.preventDefault()
+  // debugger
+  if (e.target.artist.value.toLowerCase() === currentSong.artist.toLowerCase()) {
+    console.log("artist correct")
+    currentUser.current_score += 50
+  } else {
+    console.log("artist wrong you suck");
+  }
 
-    if (e.target.title.value.toLowerCase() === currentSong.song_title.toLowerCase()) {
-        console.log("song correct")
-        currentUser.current_score += 50
-    } else {
-        console.log("song wrong you suck")
-    }
-    scoreElement.innerText = `Score: ${currentUser.current_score}`
+  if (e.target.title.value.toLowerCase() === currentSong.song_title.toLowerCase()) {
+    console.log("song correct")
+    currentUser.current_score += 50
+  } else {
+    console.log("song wrong you suck")
+  }
+  scoreElement.innerText = `Score: ${currentUser.current_score}`
 
-    if (e.target.title.value.toLowerCase() === currentSong.song_title.toLowerCase() || e.target.artist.value.toLowerCase() === currentSong.artist.toLowerCase()) {
-        console.log("correct")
-        getNewSong()
-    } else {
-        console.log("nope")
-        removeLife()
-        if (currentUser.lives === 0) {
-          endGame()
-        } else{
-          getNewSong()
-        }
+  if (e.target.title.value.toLowerCase() === currentSong.song_title.toLowerCase() || e.target.artist.value.toLowerCase() === currentSong.artist.toLowerCase()) {
+    console.log("correct")
+    getNewSong()
+  } else {
+    console.log("nope")
+    removeLife()
+    if (currentUser.lives === 0) {
+      endGame()
+    } else{
+      getNewSong()
     }
+  }
 }) //end submit player answer event listener
 
 /*******************************************************************************
@@ -100,69 +135,69 @@ form.addEventListener("submit", function(e) {
 ******************************************************************************/
 
 function removeLife() {
- let currentHeart = document.querySelector(`#heart${currentUser.lives}`)
- currentHeart.src = "assets/heart-empty.png"
- currentUser.lives -= 1
+  let currentHeart = document.querySelector(`#heart${currentUser.lives}`)
+  currentHeart.src = "assets/heart-empty.png"
+  currentUser.lives -= 1
 }
 
 function resetLives() {
- document.querySelector(".incorrect").innerHTML = ""
- document.querySelector(".incorrect").innerHTML = `
- <img class="hearts" id="heart1" src="assets/heart-full.png"></img>
- <img class="hearts" id="heart2" src="assets/heart-full.png"></img>
- <img class="hearts" id="heart3" src="assets/heart-full.png"></img>`
+  document.querySelector(".incorrect").innerHTML = ""
+  document.querySelector(".incorrect").innerHTML = `
+  <img class="hearts" id="heart1" src="assets/heart-full.png"></img>
+  <img class="hearts" id="heart2" src="assets/heart-full.png"></img>
+  <img class="hearts" id="heart3" src="assets/heart-full.png"></img>`
 }
 
 function startGame() {
-    currentUser.lives = 3
-    resetLives()
-    startDiv.style = "display:none"
-    getNewSong()
-    playareaDiv.style = ""
+  currentUser.lives = 3
+  resetLives()
+  startDiv.style = "display:none"
+  getNewSong()
+  playareaDiv.style = ""
 }
 
 function populateLyrics() {
-//    test_title.innerText = currentSong["song_title"]
-//    test_artist.innerText = currentSong.artist
-   splitSong = currentSong.content.split("\n")
-   line1.innerText = `${splitSong[0]}`
-   line2.innerText = `${splitSong[1]}`
+  //    test_title.innerText = currentSong["song_title"]
+  //    test_artist.innerText = currentSong.artist
+  splitSong = currentSong.content.split("\n")
+  line1.innerText = `${splitSong[0]}`
+  line2.innerText = `${splitSong[1]}`
 }
 
 function getNewSong() {
   form.reset()
-//   currentSong = data[Math.floor(Math.random() * data.length)];
+  //   currentSong = data[Math.floor(Math.random() * data.length)];
   fetch(LYRICS_URL+`/${currentUser.id}/new_song`)
   .then(response => response.json())
-  .then(song => {  
+  .then(song => {
     console.log(song)
     if (song.error) {
-        line1.innerText = ""
-        line2.innerText = ""
-        warning.class = "warning"
-        warning.innerText = "No more songs available"
-        lyricsDiv.appendChild(warning)
-        setTimeout(endGame,4000)
-        // endGame()
+      line1.innerText = ""
+      line2.innerText = ""
+      warning.class = "warning"
+      warning.innerText = "No more songs available"
+      lyricsDiv.appendChild(warning)
+      setTimeout(endGame,4000)
+      // endGame()
     }
     else {
-        currentSong = song
-        populateLyrics()
+      currentSong = song
+      populateLyrics()
     }
-    })
-//   populateLyrics()
+  })
+  //   populateLyrics()
 }
 
 function endGame() {
-    warning.remove()
+  warning.remove()
   if (currentUser.current_score > currentUser.score) {
     currentUser.score = currentUser.current_score;
     fetch(USERS_URL+`/${currentUser.id}`, {
-        method: "PATCH",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(currentUser)
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(currentUser)
     })
   }
   playareaDiv.style = "display :none";
@@ -174,49 +209,11 @@ function endGame() {
   homeButton.innerText = "Return to start";
   gameoverDiv.appendChild(homeButton);
   homeButton.addEventListener("click", () => {
-      startDiv.style = "display:block"
-      gameoverDiv.style = "display :none"
-      gameoverDiv.innerHTML = ""
-      fetchHiScores()
-      renderHiScores()
-    })
+    startDiv.style = "display:block"
+    gameoverDiv.style = "display :none"
+    gameoverDiv.innerHTML = ""
+    fetchHiScores()
+    renderHiScores()
+  })
   console.log("ya ded")
 }
-
-function fetchHiScores() {
-    fetch('http://localhost:3000/api/v1/users')
-    .then(response => response.json())
-    .then(function (myJson) {
-        users = myJson
-        users.sort(compare)
-        renderHiScores()
-    })
-}
-
-function compare(a, b) {
-    const scoreA = a.score;
-    const scoreB = b.score
-
-    let comparison = 0;
-    if (scoreA < scoreB) {
-        comparison = 1;
-    } else if (scoreA > scoreB) {
-        comparison = -1;
-    }
-    return comparison;
-}
-
-function renderHiScores() {
-    topTen = users.slice(0, 10)
-    leaderDiv.innerHTML = ""
-    topTen.forEach((u, i) => {
-        leaderDiv.innerHTML += `
-            <div id="rank${i+1}">
-                <p>${u.name}</p>
-                <p>#${i+1}</p>
-                <p>${u.score}</p>
-            </div>
-        `
-    })
-}
-
