@@ -1,9 +1,17 @@
+/*****************************************************************************
+ * All of our variables and data.
+ ****************************************************************************/
+
+// Declaring GLOBAL CONSTANTS
 const LYRICS_URL = "http://localhost:3000/api/v1/lyrics";
 const USERS_URL = "http://localhost:3000/api/v1/users";
 const USERS_LYRICS_URL = "http://localhost:3000/api/v1/users";
-
-
 let data = ""
+let currentSong = ""
+let splitSong = []
+let currentUser = {current_score:0 , lives: 3}
+
+// Grabbing DOM Elements
 const startDiv = document.querySelector(".start")
 const playareaDiv = document.querySelector(".playarea");
 const gameoverDiv = document.querySelector(".gameover");
@@ -13,21 +21,23 @@ const line2 = document.querySelector("#line2")
 const test_title = document.querySelector("#test_title")
 const test_artist = document.querySelector("#test_artist")
 const form = document.querySelector("#form")
-let currentSong = ""
-let splitSong = []
-let currentUser = {current_score:0 , lives: 3}
 
-
+/*****************************************************************************
+ * On load fetch actions
+ ****************************************************************************/
+// Initial Fetch that gets the starting song
 fetch('http://localhost:3000/api/v1/lyrics')
-    .then(function (response) {
-        return response.json();
-    })
-    .then(function (myJson) {
-        data = myJson
-        getNewSong()
-    })
-    .then(populateLyrics)
+  .then(response => response.json())
+  .then(function (myJson) {
+      data = myJson
+      getNewSong()
+  })
+  .then(populateLyrics) //end of GET all Songs FETCH
 
+
+/*****************************************************************************
+ * Event Listeners
+ ****************************************************************************/
 startDiv.addEventListener("submit", function(e) {
     e.preventDefault()
     currentUser.name = e.target.name.value
@@ -36,34 +46,12 @@ startDiv.addEventListener("submit", function(e) {
         headers: {
             "Content-Type": "application/json",
         },
-
-        body: JSON.stringify(
-            currentUser
-        )
+        body: JSON.stringify(currentUser)
     })
     .then(response => response.json())
     .then(response => currentUser ={...currentUser, ...response})
-    .then(startGame)
-}
-
-)    
-
-function startGame() {
-    currentUser.lives = 3
-    resetLives()
-    startDiv.style = "display:none"
-    playareaDiv.style = ""
-
-}    
-
-
-function populateLyrics() {
-    test_title.innerText = currentSong["song_title"]
-    test_artist.innerText = currentSong.artist
-    splitSong = currentSong.content.split("\n")
-    line1.innerText = `${splitSong[0]}`
-    line2.innerText = `${splitSong[1]}`
-}
+    .then(startGame) //end of POST new User FETCH
+}) //end submit username input event listener
 
 form.addEventListener("submit", function(e) {
     e.preventDefault()
@@ -71,90 +59,102 @@ form.addEventListener("submit", function(e) {
     if (e.target.artist.value.toLowerCase() === currentSong.artist.toLowerCase()) {
         console.log("artist correct")
         currentUser.current_score += 50
-    }
-    else {
-        console.log("artist wrong you suck")
+    } else {
+        console.log("artist wrong you suck");
     }
 
     if (e.target.title.value.toLowerCase() === currentSong.song_title.toLowerCase()) {
         console.log("song correct")
         currentUser.current_score += 50
-    }
-    else {
+    } else {
         console.log("song wrong you suck")
     }
 
     if (e.target.title.value.toLowerCase() === currentSong.song_title.toLowerCase() || e.target.artist.value.toLowerCase() === currentSong.artist.toLowerCase()) {
         console.log("correct")
         getNewSong()
-    }
-    else {
+    } else {
         console.log("nope")
         removeLife()
     }
-})
+}) //end submit player answer event listener
+
+/*******************************************************************************
+* Helper functions
+******************************************************************************/
 
 function removeLife() {
-    let currentHeart = document.querySelector(`#heart${currentUser.lives}`)
-    currentHeart.src = "assets/heart-empty.png"
-    currentUser.lives -= 1
-    if (currentUser.lives === 0) {
-        endGame()
-    } 
-    getNewSong()
+ let currentHeart = document.querySelector(`#heart${currentUser.lives}`)
+ currentHeart.src = "assets/heart-empty.png"
+ currentUser.lives -= 1
+ if (currentUser.lives === 0) {
+   endGame()
+ }
+ getNewSong()
 }
 
 function resetLives() {
-    document.querySelector(".incorrect").innerHTML = ""
-    document.querySelector(".incorrect").innerHTML = 
-        `<img class="hearts" id="heart1" src="assets/heart-full.png"></img>
-        <img class="hearts" id="heart2" src="assets/heart-full.png"></img>
-        <img class="hearts" id="heart3" src="assets/heart-full.png"></img>`    
+ document.querySelector(".incorrect").innerHTML = ""
+ document.querySelector(".incorrect").innerHTML = `
+ <img class="hearts" id="heart1" src="assets/heart-full.png"></img>
+ <img class="hearts" id="heart2" src="assets/heart-full.png"></img>
+ <img class="hearts" id="heart3" src="assets/heart-full.png"></img>`
+}
+
+function startGame() {
+   currentUser.lives = 3
+   resetLives()
+   startDiv.style = "display:none"
+   playareaDiv.style = ""
+
+}
+
+function populateLyrics() {
+   test_title.innerText = currentSong["song_title"]
+   test_artist.innerText = currentSong.artist
+   splitSong = currentSong.content.split("\n")
+   line1.innerText = `${splitSong[0]}`
+   line2.innerText = `${splitSong[1]}`
 }
 
 function getNewSong() {
-    form.reset()
-    currentSong = data[Math.floor(Math.random() * data.length)];
-    fetch(USERS_LYRICS_URL, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-
-        body: JSON.stringify(
-            {user_id: currentUser.id,
-            lyric_id : currentSong.id
-            }
-        )
-    })
-    populateLyrics()
+  form.reset()
+  currentSong = data[Math.floor(Math.random() * data.length)];
+  fetch(USERS_LYRICS_URL, {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json",
+    },
+    body: JSON.stringify(
+        {user_id: currentUser.id,
+        lyric_id : currentSong.id
+        }
+      )
+  })
+  populateLyrics()
 }
 
 function endGame() {
-    if (currentUser.current_score > currentUser.score) {
-        currentUser.score = currentUser.current_score
-        fetch(USERS_URL+`/${currentUser.id}`, {
-            method: "PATCH",
-            headers: {
-                "Content-Type": "application/json",
-            },
-
-            body: JSON.stringify(
-                currentUser
-            )
-        })
-    }
-    playareaDiv.style = "display :none"
-    let gameOver = document.createElement("img")
-    gameOver.src = "assets/GAMEOVER_copy_1024x1024.jpg"
-    gameoverDiv.appendChild(gameOver)
-    // gameoverDiv.style = ""
-    let homeButton = document.createElement("button")
-    homeButton.innerText = "Return to start"
-    gameoverDiv.appendChild(homeButton)
-    homeButton.addEventListener("click", () => {
-        startDiv.style = "display:block"
-        gameoverDiv.style = "display :none"})
-    console.log("ya ded")
-    
+  if (currentUser.current_score > currentUser.score) {
+    currentUser.score = currentUser.current_score;
+    fetch(USERS_URL+`/${currentUser.id}`, {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(currentUser)
+    })
+  }
+  playareaDiv.style = "display :none";
+  let gameOver = document.createElement("img");
+  gameOver.src = "assets/GAMEOVER_copy_1024x1024.jpg";
+  gameoverDiv.appendChild(gameOver);
+  // gameoverDiv.style = ""
+  let homeButton = document.createElement("button");
+  homeButton.innerText = "Return to start";
+  gameoverDiv.appendChild(homeButton);
+  homeButton.addEventListener("click", () => {
+      startDiv.style = "display:block"
+      gameoverDiv.style = "display :none"})
+  console.log("ya ded")
 }
