@@ -19,9 +19,12 @@
 }
 
 .hearts {
-    max-width: 40px;
+    width: 40px;
+    height: 40px;
+
     /* max-height: 40px; */
 }
+
 
 #leaders span{
   padding: 30px;

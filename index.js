@@ -172,8 +172,8 @@ function populateLyrics() {
   //    test_title.innerText = currentSong["song_title"]
   //    test_artist.innerText = currentSong.artist
   splitSong = currentSong.content.split("\n")
-  line1.innerText = `${splitSong[0]}`
-  line2.innerText = `${splitSong[1]}`
+  line1.innerText = `♪ ${splitSong[0]} ♪`
+  line2.innerText = `♫ ${splitSong[1]} ♫`
 }
 
 function getNewSong() {
@@ -190,7 +190,6 @@ function getNewSong() {
       warning.innerText = "No more songs available"
       lyricsDiv.appendChild(warning)
       setTimeout(endGame,4000)
-      // endGame()
     }
     else {
       currentSong = song
@@ -217,10 +216,10 @@ function endGame() {
     })
   }
   playareaDiv.style = "display :none";
+  gameoverDiv.style = ""
   let gameOver = document.createElement("img");
   gameOver.src = "assets/GAMEOVER_copy_1024x1024.jpg";
   gameoverDiv.appendChild(gameOver);
-  gameoverDiv.style = ""
   let homeButton = document.createElement("button");
   homeButton.innerText = "Return to start";
   gameoverDiv.appendChild(homeButton);
