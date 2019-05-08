@@ -69,12 +69,24 @@ function renderHiScores() {
   leaderDiv.innerHTML = ""
   topTen.forEach((u, i) => {
     leaderDiv.innerHTML += `
-    <div id="rank${i+1}">
-      <p>${u.name}</p>
-      <p>#${i+1}</p>
-      <p>${u.score}</p>
+    <div class="ui card"
+    <div class="content">
+
+    <div class="description">
+    <div class="ui grid" id="rank${i+1}">
+      <span class="column">${i+1}</span>
+      <span class="six wide column">${u.name}</span>
+      <span class="column">${u.score}</span>
     </div>
-    `
+    </div>
+  </div>
+  </div>`
+    // <div id="rank${i+1}">
+    //   <p>${u.name}</p>
+    //   <p>#${i+1}</p>
+    //   <p>${u.score}</p>
+    // </div>
+    // `
   })
 }
 
@@ -199,6 +211,10 @@ function endGame() {
       },
       body: JSON.stringify(currentUser)
     })
+    .then(resp => {
+      fetchHiScores()
+      renderHiScores()
+    })
   }
   playareaDiv.style = "display :none";
   let gameOver = document.createElement("img");
@@ -212,8 +228,6 @@ function endGame() {
     startDiv.style = "display:block"
     gameoverDiv.style = "display :none"
     gameoverDiv.innerHTML = ""
-    fetchHiScores()
-    renderHiScores()
   })
   console.log("ya ded")
 }
