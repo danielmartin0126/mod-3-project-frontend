@@ -1,19 +1,22 @@
-.Container {
+.container {
+    border: 1px solid black;
+    width: 600px;
+}
+
+.playarea {
+    border: 1px solid black;
+    margin-top: 10%;
+    margin-bottom: 30%;
+}
+
+.lyrics {
     border: 1px solid black;
 }
 
-.Playarea {
+.inputs {
     border: 1px solid black;
 }
-
-.Lyrics {
-    border: 1px solid black;
-}
-
-.Inputs {
-    border: 1px solid black;
-}
-.Incorrect {
+.incorrect {
     border-style: solid;
     border-color: red;
 }
