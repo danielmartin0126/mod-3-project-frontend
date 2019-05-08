@@ -55,3 +55,17 @@
 #submit {
     margin-left: 42%;
 }
+
+.gameover img {
+    width: 100%;
+}
+
+#gameover-scores h2 {
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+#gameover-scores {
+    display: flex;
+    justify-content: space-evenly;
+}
