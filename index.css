@@ -19,7 +19,9 @@
 }
 
 .hearts {
-    max-width: 40px;
+    width: 40px;
+    height: 40px;
+
     /* max-height: 40px; */
 }
 
@@ -34,4 +36,9 @@ div[id^='rank'], div[id*='rank']>p {
 
 .hiscores {
     text-align: center;
+}
+
+.score {
+    /* background-color: blueviolet */
+    margin-right: 5%;
 }

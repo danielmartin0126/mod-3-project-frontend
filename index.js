@@ -178,7 +178,6 @@ function getNewSong() {
       warning.innerText = "No more songs available"
       lyricsDiv.appendChild(warning)
       setTimeout(endGame,4000)
-      // endGame()
     }
     else {
       currentSong = song
@@ -201,10 +200,10 @@ function endGame() {
     })
   }
   playareaDiv.style = "display :none";
+  gameoverDiv.style = ""
   let gameOver = document.createElement("img");
   gameOver.src = "assets/GAMEOVER_copy_1024x1024.jpg";
   gameoverDiv.appendChild(gameOver);
-  gameoverDiv.style = ""
   let homeButton = document.createElement("button");
   homeButton.innerText = "Return to start";
   gameoverDiv.appendChild(homeButton);

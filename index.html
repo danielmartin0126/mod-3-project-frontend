@@ -14,7 +14,7 @@
 
 <body>
   <div class="container ui grid">
-    <div class="twelve wide column red">
+    <div class="start twelve wide ui column">
       <div class="start" >
         <h1>NAME OF THE GAME</h1>
         <div class="login" >
@@ -25,10 +25,21 @@
         </div>
       </div>
     </div>
-    <div class='gameover' style="display:none"></div>
-    <div class="playarea" style="display:none">
-      <div class="lyrics">
-        <h4 id="current_score">Score</h4>
+    <div class="gameover twelve wide column red" style="display:none"></div>
+    <div class="playarea twelve wide column" style="display:none">
+      <div class="ui grid">
+        <div class="row">
+          <div class="incorrect left floated columns">
+            <img class="hearts" id="heart1" src="assets/heart-full.png"></img>
+            <img class="hearts" id="heart2" src="assets/heart-full.png"></img>
+            <img class="hearts" id="heart3" src="assets/heart-full.png"></img>
+          </div>
+              <div class="score right floated column">
+                <h4 id="current_score">Score</h4>
+              </div>
+        </div>
+        </div>
+      <div class="lyrics ui ">
         <p id="line1"></p>
         <p id="line2"></p>
       </div>
@@ -39,16 +50,11 @@
           <input type="submit" id="submit" value="Submit">
         </form>
       </div>
-      <div class="incorrect">
-        <img class="hearts" id="heart1" src="assets/heart-full.png"></img>
-        <img class="hearts" id="heart2" src="assets/heart-full.png"></img>
-        <img class="hearts" id="heart3" src="assets/heart-full.png"></img>
-      </div>
     </div>
-    <div class="four wide column blue right floated">
+    <div class="four wide column right floated">
       <div class="hiscores">
-        <h2>Leaderboards</h2>
-        <div id="leaders"></div>
+        <h3 class="center">Leaderboards</h3>
+        <div class="" id="leaders"></div>
       </div>
     </div>
   </div>
