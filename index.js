@@ -220,9 +220,12 @@ function endGame() {
   gameoverDiv.style = ""
   let gameOver = document.createElement("img");
   gameOver.src = "assets/GAMEOVER_copy_1024x1024.jpg";
+  gameOver.style = "width: 100%;"
+
   gameoverDiv.appendChild(gameOver);
   let homeButton = document.createElement("button");
   homeButton.innerText = "Return to start";
+  homeButton.className = "ui button large orange";
   gameoverDiv.appendChild(homeButton);
   homeButton.addEventListener("click", () => {
     startDiv.style = "display:block"
