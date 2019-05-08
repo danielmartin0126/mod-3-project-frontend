@@ -60,6 +60,12 @@
     width: 100%;
 }
 
-.gameover button {
+#gameover-scores h2 {
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
 
+#gameover-scores {
+    display: flex;
+    justify-content: space-evenly;
 }
