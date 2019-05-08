@@ -1,19 +1,25 @@
-.Container {
+.container {
     border: 1px solid black;
+    width: 600px;
 }
 
-.Playarea {
+.playarea {
     border: 1px solid black;
+    margin-top: 10%;
+    margin-bottom: 30%;
 }
 
-.Lyrics {
+.lyrics {
     border: 1px solid black;
+    margin-bottom: 7%;
+    margin-top: 7%;
+
 }
 
-.Inputs {
+.inputs {
     border: 1px solid black;
 }
-.Incorrect {
+.incorrect {
     border-style: solid;
     border-color: red;
 }
@@ -37,4 +43,15 @@
 
 .score {
     margin-right: 5%;
+}
+
+.lyrics h2{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1%;
+    margin-top: 0;
+}
+
+#submit {
+    margin-left: 42%;
 }

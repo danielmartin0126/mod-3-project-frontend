@@ -26,31 +26,40 @@
       </div>
     </div>
     <div class="gameover twelve wide column red" style="display:none"></div>
-    <div class="playarea twelve wide column" style="display:none">
+    <div class="playarea eleven wide column" style="display:none">
       <div class="ui grid">
-        <div class="row">
+        <div class="stats row">
           <div class="incorrect left floated columns">
             <img class="hearts" id="heart1" src="assets/heart-full.png"></img>
             <img class="hearts" id="heart2" src="assets/heart-full.png"></img>
             <img class="hearts" id="heart3" src="assets/heart-full.png"></img>
           </div>
               <div class="score right floated column">
-                <h4 id="current_score">Score</h4>
+                <h3 id="current_score">Score</h3>
               </div>
         </div>
         </div>
-      <div class="lyrics ui ">
-        <p id="line1"></p>
-        <p id="line2"></p>
-      </div>
+        <div class="lyrics ui">
+          <h2 id="line1"></h2>
+          <h2 id="line2"></h2>
+        </div>
       <div class="inputs">
-        <form id="form">
-          <input type="text" name="title" placeholder="Song Title"><br>
-          <input type="text" name="artist" placeholder="Artist"><br>
-          <input type="submit" id="submit" value="Submit">
+        <form class="ui massive form" id="form">
+          <div class="two fields">
+            <div class="field">
+              <label for="title">Song Title</label>
+              <input type="text" name="title">
+            </div>
+            <div class="field">
+              <label for="artist">Artist</label>
+              <input type="text" name="artist">
+            </div>
+          </div>
+          <input type="submit" id="submit" value="Submit" class="ui submit button large yellow">
         </form>
       </div>
     </div>
+    <div class="one wide column right floated teal"> </div>
     <div class="four wide column right floated black">
       <div class="hiscores">
         <h2 class="center">Leaderboards</h2>
