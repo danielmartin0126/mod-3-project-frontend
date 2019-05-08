@@ -11,6 +11,8 @@
 
 .lyrics {
     border: 1px solid black;
+    margin-bottom: 7%;
+    margin-top: 7%;
 }
 
 .inputs {
@@ -40,4 +42,11 @@
 
 .score {
     margin-right: 5%;
+}
+
+.lyrics h3 {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1%;
+    margin-top: 0;
 }

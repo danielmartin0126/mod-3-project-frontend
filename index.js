@@ -190,6 +190,7 @@ function getNewSong() {
       warning.innerText = "No more songs available"
       lyricsDiv.appendChild(warning)
       setTimeout(endGame,4000)
+
     }
     else {
       currentSong = song
