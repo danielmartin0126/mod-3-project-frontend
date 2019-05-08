@@ -211,6 +211,10 @@ function endGame() {
       },
       body: JSON.stringify(currentUser)
     })
+    .then(resp => {
+      fetchHiScores()
+      renderHiScores()
+    })
   }
   playareaDiv.style = "display :none";
   let gameOver = document.createElement("img");
@@ -224,8 +228,6 @@ function endGame() {
     startDiv.style = "display:block"
     gameoverDiv.style = "display :none"
     gameoverDiv.innerHTML = ""
-    fetchHiScores()
-    renderHiScores()
   })
   console.log("ya ded")
 }
