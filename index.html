@@ -14,13 +14,13 @@
 
 <body>
   <div class="container ui grid">
-    <div class="start twelve wide ui column">
+    <div class="start eleven wide ui column">
       <div class="start" >
-        <h1>NAME OF THE GAME</h1>
-        <div class="login" >
-          <form id="login-form">
+        <h1 align="center">NAME OF THE GAME</h1>
+        <div class="login" align="center">
+          <form id="login-form" class="ui form large">
             <input type="text" name="name" placeholder="Enter Name"><br>
-            <input type="submit" value="Start Game"><br>
+            <input id="submit-login" type="submit" value="Start Game" class="ui button medium"><br>
           </form>
         </div>
       </div>
@@ -46,11 +46,11 @@
       <div class="inputs">
         <form class="ui massive form" id="form">
           <div class="two fields">
-            <div class="field">
+            <div class="field title-input">
               <label for="title">Song Title</label>
               <input type="text" name="title">
             </div>
-            <div class="field">
+            <div class="field artist-input">
               <label for="artist">Artist</label>
               <input type="text" name="artist">
             </div>

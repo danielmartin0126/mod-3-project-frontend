@@ -28,6 +28,7 @@ let warning = document.createElement("h2")
 let scoreElement = document.querySelector("#current_score")
 let hiScoreDiv = document.querySelector(".hiscores")
 let leaderDiv = document.querySelector("#leaders")
+let scoreInputDiv = document.querySelector(".score-input")
 
 
 /*****************************************************************************
@@ -112,6 +113,8 @@ startDiv.addEventListener("submit", function(e) {
 
 form.addEventListener("submit", function(e) {
   e.preventDefault()
+  let points = document.createElement("h5")
+  points.innerText = "+50"
   // debugger
   if (e.target.artist.value.toLowerCase() === currentSong.artist.toLowerCase()) {
     console.log("artist correct")
@@ -216,11 +219,11 @@ function endGame() {
       renderHiScores()
     })
   }
-  playareaDiv.style = "display :none";
-  gameoverDiv.style = ""
+  playareaDiv.style.display = "none";
+  gameoverDiv.style.display = "block";
   let gameOver = document.createElement("img");
   gameOver.src = "assets/GAMEOVER_copy_1024x1024.jpg";
-  gameOver.style = "width: 100%;"
+  gameOver.style = "padding-top: 10%;"
   gameoverDiv.appendChild(gameOver);
 
   gameoverDiv.innerHTML += `
@@ -232,7 +235,7 @@ function endGame() {
 
   let homeButton = document.createElement("button");
   homeButton.innerText = "Return to start";
-  homeButton.className = "ui button large orange";
+  homeButton.className = "ui button large orange fluid";
 
 
 
