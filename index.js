@@ -28,13 +28,11 @@ let warning = document.createElement("h2")
 let scoreElement = document.querySelector("#current_score")
 let hiScoreDiv = document.querySelector(".hiscores")
 let leaderDiv = document.querySelector("#leaders")
-<<<<<<< HEAD
 const gameHelp = document.querySelector("#game-help");
 const helpButton = document.querySelector("#help-button")
-=======
 let scoreInputDiv = document.querySelector(".score-input")
 let bufferColumn = document.querySelector("#buffer-column")
->>>>>>> master
+
 
 
 /*****************************************************************************
