@@ -4,23 +4,24 @@
 
 <head>
   <meta http-equiv="content-type" content="text/php; charset=utf-8" />
+  <link rel="stylesheet" type="text/css" href="index.css" />
   <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
   <script src="https://code.jquery.com/jquery-3.1.1.min.js"
   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
   <script src="semantic/dist/semantic.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="index.css" />
-  <title>WHUAT</title>
+<link href="https://fonts.googleapis.com/css?family=Baloo+Bhai|Crete+Round|Indie+Flower" rel="stylesheet">
 </head>
 
 <body>
   <div class="container ui grid">
-    <div class="start twelve wide ui column">
+    <div id="left-side-start-padding" class="start eleven wide ui column turquoise">
       <div class="start" >
-        <h1>NAME OF THE GAME</h1>
-        <div class="login" >
-          <form id="login-form">
-            <input type="text" name="name" placeholder="Enter Name"><br>
-            <input type="submit" value="Start Game"><br>
+        <h1 align="center">NAME OF THE GAME</h1>
+        <div class="login mint-cream" align="center">
+          <form id="login-form" class="ui form large">
+            <label id="label-login" class="label" for="name">Enter Username</label>
+            <input type="text" name="name" placeholder=""><br>
+            <input id="submit-login" type="submit" value="Start Game" class="pastel-red ui button medium"><br>
           </form>
         </div>
 <!-- Welcome to Our Game.\n The goal is to guess the song title and song artist based on the lyric snippets given. \nYou get: \n+50 for a song title and \n+50 for a song Artist.\n You only need 1 to continue. \nSee how long you can last! -->
@@ -36,7 +37,7 @@
 
       </div>
     </div>
-    <div class="gameover eleven wide column red" style="display:none"></div>
+    <div class="gameover eleven wide column pastel-red" style="display:none; padding-left: 10%;"></div>
     <div class="playarea eleven wide column" style="display:none">
       <div class="ui grid">
         <div class="stats row">
@@ -57,21 +58,21 @@
       <div class="inputs">
         <form class="ui massive form" id="form">
           <div class="two fields">
-            <div class="field">
+            <div class="field title-input">
               <label for="title">Song Title</label>
               <input type="text" name="title">
             </div>
-            <div class="field">
+            <div class="field artist-input">
               <label for="artist">Artist</label>
               <input type="text" name="artist">
             </div>
           </div>
-          <input type="submit" id="submit" value="Submit" class="ui submit button large yellow">
+          <input type="submit" id="submit" value="Submit" class="ui submit button large maize">
         </form>
       </div>
     </div>
-    <div class="one wide column right floated teal"> </div>
-    <div class="four wide column right floated black">
+    <div id="buffer-column" class="one wide column right floated turquoise"> </div>
+    <div class="four wide column right floated gunmetal">
       <div class="hiscores">
         <h2 class="center">Leaderboards</h2>
         <div class="ui cards" id="leaders"></div>

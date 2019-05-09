@@ -1,3 +1,8 @@
+* {
+    font-family: 'Crete Round', serif;
+    color: #292F36;
+
+}
 .container {
     border: 1px solid black;
     width: 600px;
@@ -7,6 +12,11 @@
     border: 1px solid black;
     margin-top: 10%;
     margin-bottom: 30%;
+}
+
+.gameover {
+    padding-top: 10%;
+    padding-left: 10%;
 }
 
 .lyrics {
@@ -27,8 +37,6 @@
 .hearts {
     width: 40px;
     height: 40px;
-
-    /* max-height: 40px; */
 }
 
 
@@ -58,7 +66,13 @@
 
 .gameover img {
     width: 100%;
+    border-radius: 1em;
+    margin-top: 20%;
 }
+
+/* #startover {
+    width: 100%;
+} */
 
 #gameover-scores h2 {
     margin-top: 5%;
@@ -70,7 +84,79 @@
     justify-content: space-evenly;
 }
 
-#game-help{
-  display: none;
-  width: 60%;
+#login-form {
+    width: 40%;
+}
+
+.start h1 {
+    margin-top: 5%;
+    font-size: 4em;
+    font-weight: 350;
+    font-family: 'Baloo Bhai', cursive;
+
+}
+
+.login {
+    margin-top: 10%;
+    padding-top: 15%;
+    padding-bottom: 10%;
+    border-radius: 1em;
+}
+
+#submit-login {
+    margin-top: 5%;
+}
+
+#submit-login {
+    background-color: #FF6B6B;
+    color: #F7FFF7;
+    font-family: 'Crete Round', serif;
+
+}
+
+#label-login{
+    /* padding: 2em; */
+    display: block;
+}
+
+/* #submit-login {
+    background-color: #FFE66D;
+    color: #292F36;
+
+}  */
+
+.gunmetal {
+    background-color: #292F36;
+}
+
+.turquoise {
+    background-color: #4ECDC4;
+}
+
+.mint-cream {
+    background-color: #F7FFF7
+}
+
+.pastel-red {
+    background-color: #FF6B6B;
+}
+
+.maize {
+    background-color: #FFE66D;
+}
+
+#left-side-start-padding {
+    padding-left: 10%;
+}
+
+.hiscores h2 {
+    color:#F7FFF7;
+}
+
+.gunmetal-text {
+    color: #292F36;
+}
+
+#home-button {
+    background-color: #FFE66D;
 }

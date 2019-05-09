@@ -28,8 +28,13 @@ let warning = document.createElement("h2")
 let scoreElement = document.querySelector("#current_score")
 let hiScoreDiv = document.querySelector(".hiscores")
 let leaderDiv = document.querySelector("#leaders")
+<<<<<<< HEAD
 const gameHelp = document.querySelector("#game-help");
 const helpButton = document.querySelector("#help-button")
+=======
+let scoreInputDiv = document.querySelector(".score-input")
+let bufferColumn = document.querySelector("#buffer-column")
+>>>>>>> master
 
 
 /*****************************************************************************
@@ -71,10 +76,10 @@ function renderHiScores() {
   leaderDiv.innerHTML = ""
   topTen.forEach((u, i) => {
     leaderDiv.innerHTML += `
-    <div class="ui card"
-    <div class="content">
+    <div class="ui card mint-cream"
+    <div class="content gunmetal-text">
 
-    <div class="description">
+    <div class="description mint-cream">
     <div class="ui grid" id="rank${i+1}">
       <span class="column">${i+1}</span>
       <span class="six wide column">${u.name}</span>
@@ -114,6 +119,8 @@ startDiv.addEventListener("submit", function(e) {
 
 form.addEventListener("submit", function(e) {
   e.preventDefault()
+  let points = document.createElement("h5")
+  points.innerText = "+50"
   // debugger
   if (e.target.artist.value.toLowerCase() === currentSong.artist.toLowerCase()) {
     console.log("artist correct")
@@ -173,6 +180,7 @@ function startGame() {
   startDiv.style = "display:none"
   getNewSong()
   playareaDiv.style = ""
+
 }
 
 function populateLyrics() {
@@ -223,11 +231,11 @@ function endGame() {
       renderHiScores()
     })
   }
-  playareaDiv.style = "display :none";
-  gameoverDiv.style = ""
+  playareaDiv.style.display = "none";
+  gameoverDiv.style.display = "block";
+  bufferColumn.className = "one wide column right floated pastel-red"
   let gameOver = document.createElement("img");
   gameOver.src = "assets/GAMEOVER_copy_1024x1024.jpg";
-  gameOver.style = "width: 100%;"
   gameoverDiv.appendChild(gameOver);
 
   gameoverDiv.innerHTML += `
@@ -239,7 +247,8 @@ function endGame() {
 
   let homeButton = document.createElement("button");
   homeButton.innerText = "Return to start";
-  homeButton.className = "ui button large orange";
+  homeButton.className = "ui button large gunmetal-text fluid";
+  homeButton.id = "home-button";
 
 
 
@@ -248,6 +257,8 @@ function endGame() {
     startDiv.style = "display:block"
     gameoverDiv.style = "display :none"
     gameoverDiv.innerHTML = ""
+    bufferColumn.className = "one wide column right floated turquoise"
+
   })
   console.log("ya ded")
 }
