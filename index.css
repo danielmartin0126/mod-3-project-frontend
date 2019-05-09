@@ -89,10 +89,60 @@
 }
 
 .login {
-    margin-top: 25%;
+    margin-top: 10%;
+    padding-top: 15%;
+    padding-bottom: 10%;
+    border-radius: 1em;
 }
 
 #submit-login {
     margin-top: 5%;
 }
 
+#submit-login {
+    background-color: #FF6B6B;
+    color: #F7FFF7;
+}
+
+#label-login{
+    /* padding: 2em; */
+    display: block;
+}
+
+/* #submit-login {
+    background-color: #FFE66D;
+    color: #292F36;
+
+}  */
+
+.gunmetal {
+    background-color: #292F36;
+}
+
+.turquoise {
+    background-color: #4ECDC4;
+}
+
+.mint-cream {
+    background-color: #F7FFF7
+}
+
+.pastel-red {
+    background-color: #FF6B6B;
+}
+
+.maize {
+    background-color: #FFE66D;
+}
+
+#left-side-start-padding {
+    padding-left: 10%;
+}
+
+.hiscores h2 {
+    color:#F7FFF7;
+}
+
+.gunmetal-text {
+    color: #292F36;
+}

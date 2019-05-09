@@ -4,28 +4,29 @@
 
 <head>
   <meta http-equiv="content-type" content="text/php; charset=utf-8" />
+  <link rel="stylesheet" type="text/css" href="index.css" />
   <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
   <script src="https://code.jquery.com/jquery-3.1.1.min.js"
   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
   <script src="semantic/dist/semantic.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="index.css" />
   <title>WHUAT</title>
 </head>
 
 <body>
   <div class="container ui grid">
-    <div class="start eleven wide ui column">
+    <div id="left-side-start-padding" class="start eleven wide ui column turquoise">
       <div class="start" >
         <h1 align="center">NAME OF THE GAME</h1>
-        <div class="login" align="center">
+        <div class="login mint-cream" align="center">
           <form id="login-form" class="ui form large">
-            <input type="text" name="name" placeholder="Enter Name"><br>
-            <input id="submit-login" type="submit" value="Start Game" class="ui button medium"><br>
+            <label id="label-login" class="label" for="name">Enter Username</label><br>
+            <input type="text" name="name" placeholder=""><br>
+            <input id="submit-login" type="submit" value="Start Game" class="pastel-red ui button medium"><br>
           </form>
         </div>
       </div>
     </div>
-    <div class="gameover eleven wide column red" style="display:none"></div>
+    <div class="gameover eleven wide column mint-cream" style="display:none"></div>
     <div class="playarea eleven wide column" style="display:none">
       <div class="ui grid">
         <div class="stats row">
@@ -55,12 +56,12 @@
               <input type="text" name="artist">
             </div>
           </div>
-          <input type="submit" id="submit" value="Submit" class="ui submit button large yellow">
+          <input type="submit" id="submit" value="Submit" class="ui submit button large maize">
         </form>
       </div>
     </div>
-    <div class="one wide column right floated teal"> </div>
-    <div class="four wide column right floated black">
+    <div class="one wide column right floated turquoise"> </div>
+    <div class="four wide column right floated gunmetal">
       <div class="hiscores">
         <h2 class="center">Leaderboards</h2>
         <div class="ui cards" id="leaders"></div>
