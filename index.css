@@ -1,3 +1,6 @@
+* {
+    font-family: 'Crete Round', serif;
+}
 .container {
     border: 1px solid black;
     width: 600px;
@@ -31,8 +34,6 @@
 .hearts {
     width: 40px;
     height: 40px;
-
-    /* max-height: 40px; */
 }
 
 
@@ -85,7 +86,9 @@
 .start h1 {
     margin-top: 5%;
     font-size: 4em;
-    font-weight: 999;
+    font-weight: 350;
+    font-family: 'Baloo Bhai', cursive;
+
 }
 
 .login {
@@ -102,6 +105,8 @@
 #submit-login {
     background-color: #FF6B6B;
     color: #F7FFF7;
+    font-family: 'Crete Round', serif;
+
 }
 
 #label-login{
