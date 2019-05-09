@@ -1,5 +1,7 @@
 * {
     font-family: 'Crete Round', serif;
+    color: #292F36;
+
 }
 .container {
     border: 1px solid black;
@@ -14,6 +16,7 @@
 
 .gameover {
     padding-top: 10%;
+    padding-left: 10%;
 }
 
 .lyrics {
@@ -63,6 +66,8 @@
 
 .gameover img {
     width: 100%;
+    border-radius: 1em;
+    margin-top: 20%;
 }
 
 /* #startover {
@@ -150,4 +155,8 @@
 
 .gunmetal-text {
     color: #292F36;
+}
+
+#home-button {
+    background-color: #FFE66D;
 }

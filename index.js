@@ -29,6 +29,7 @@ let scoreElement = document.querySelector("#current_score")
 let hiScoreDiv = document.querySelector(".hiscores")
 let leaderDiv = document.querySelector("#leaders")
 let scoreInputDiv = document.querySelector(".score-input")
+let bufferColumn = document.querySelector("#buffer-column")
 
 
 /*****************************************************************************
@@ -169,6 +170,7 @@ function startGame() {
   startDiv.style = "display:none"
   getNewSong()
   playareaDiv.style = ""
+
 }
 
 function populateLyrics() {
@@ -221,9 +223,9 @@ function endGame() {
   }
   playareaDiv.style.display = "none";
   gameoverDiv.style.display = "block";
+  bufferColumn.className = "one wide column right floated pastel-red"
   let gameOver = document.createElement("img");
   gameOver.src = "assets/GAMEOVER_copy_1024x1024.jpg";
-  gameOver.style = "padding-top: 10%;"
   gameoverDiv.appendChild(gameOver);
 
   gameoverDiv.innerHTML += `
@@ -235,7 +237,8 @@ function endGame() {
 
   let homeButton = document.createElement("button");
   homeButton.innerText = "Return to start";
-  homeButton.className = "ui button large orange fluid";
+  homeButton.className = "ui button large gunmetal-text fluid";
+  homeButton.id = "home-button";
 
 
 
@@ -244,6 +247,8 @@ function endGame() {
     startDiv.style = "display:block"
     gameoverDiv.style = "display :none"
     gameoverDiv.innerHTML = ""
+    bufferColumn.className = "one wide column right floated turquoise"
+
   })
   console.log("ya ded")
 }
