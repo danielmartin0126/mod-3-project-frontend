@@ -73,7 +73,7 @@ function renderHiScores() {
     <div class="ui card mint-cream"
     <div class="content gunmetal-text">
 
-    <div class="description">
+    <div class="description mint-cream">
     <div class="ui grid" id="rank${i+1}">
       <span class="column">${i+1}</span>
       <span class="six wide column">${u.name}</span>
