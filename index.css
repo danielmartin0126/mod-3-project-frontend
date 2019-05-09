@@ -9,6 +9,10 @@
     margin-bottom: 30%;
 }
 
+.gameover {
+    padding-top: 10%;
+}
+
 .lyrics {
     border: 1px solid black;
     margin-bottom: 7%;
@@ -59,6 +63,10 @@
 .gameover img {
     width: 100%;
 }
+
+/* #startover {
+    width: 100%;
+} */
 
 #gameover-scores h2 {
     margin-top: 5%;

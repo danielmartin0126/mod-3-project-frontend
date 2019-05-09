@@ -219,11 +219,11 @@ function endGame() {
       renderHiScores()
     })
   }
-  playareaDiv.style = "display :none";
-  gameoverDiv.style = ""
+  playareaDiv.style.display = "none";
+  gameoverDiv.style.display = "block";
   let gameOver = document.createElement("img");
   gameOver.src = "assets/GAMEOVER_copy_1024x1024.jpg";
-  gameOver.style = "width: 100%;"
+  gameOver.style = "padding-top: 10%;"
   gameoverDiv.appendChild(gameOver);
 
   gameoverDiv.innerHTML += `
@@ -235,7 +235,7 @@ function endGame() {
 
   let homeButton = document.createElement("button");
   homeButton.innerText = "Return to start";
-  homeButton.className = "ui button large orange";
+  homeButton.className = "ui button large orange fluid";
 
 
 
