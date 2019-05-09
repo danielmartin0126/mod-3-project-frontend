@@ -70,8 +70,8 @@ function renderHiScores() {
   leaderDiv.innerHTML = ""
   topTen.forEach((u, i) => {
     leaderDiv.innerHTML += `
-    <div class="ui card"
-    <div class="content">
+    <div class="ui card mint-cream"
+    <div class="content gunmetal-text">
 
     <div class="description">
     <div class="ui grid" id="rank${i+1}">
