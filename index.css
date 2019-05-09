@@ -69,3 +69,22 @@
     display: flex;
     justify-content: space-evenly;
 }
+
+#login-form {
+    width: 40%;
+}
+
+.start h1 {
+    margin-top: 5%;
+    font-size: 4em;
+    font-weight: 999;
+}
+
+.login {
+    margin-top: 25%;
+}
+
+#submit-login {
+    margin-top: 5%;
+}
+

@@ -28,6 +28,7 @@ let warning = document.createElement("h2")
 let scoreElement = document.querySelector("#current_score")
 let hiScoreDiv = document.querySelector(".hiscores")
 let leaderDiv = document.querySelector("#leaders")
+let scoreInputDiv = document.querySelector(".score-input")
 
 
 /*****************************************************************************
@@ -112,6 +113,8 @@ startDiv.addEventListener("submit", function(e) {
 
 form.addEventListener("submit", function(e) {
   e.preventDefault()
+  let points = document.createElement("h5")
+  points.innerText = "+50"
   // debugger
   if (e.target.artist.value.toLowerCase() === currentSong.artist.toLowerCase()) {
     console.log("artist correct")
