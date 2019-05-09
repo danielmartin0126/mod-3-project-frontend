@@ -69,3 +69,8 @@
     display: flex;
     justify-content: space-evenly;
 }
+
+#game-help{
+  display: none;
+  width: 60%;
+}

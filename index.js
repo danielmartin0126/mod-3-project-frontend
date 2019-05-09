@@ -28,6 +28,8 @@ let warning = document.createElement("h2")
 let scoreElement = document.querySelector("#current_score")
 let hiScoreDiv = document.querySelector(".hiscores")
 let leaderDiv = document.querySelector("#leaders")
+const gameHelp = document.querySelector("#game-help");
+const helpButton = document.querySelector("#help-button")
 
 
 /*****************************************************************************
@@ -141,6 +143,11 @@ form.addEventListener("submit", function(e) {
     }
   }
 }) //end submit player answer event listener
+
+helpButton.addEventListener("click", function(e) {
+  e.preventDefault();
+  gameHelp.style.display = "block";
+})
 
 /*******************************************************************************
 * Helper functions
