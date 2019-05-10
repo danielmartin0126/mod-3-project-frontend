@@ -168,6 +168,8 @@ function resetLives() {
 
 function startGame() {
   currentUser.lives = 3
+  currentUser.current_score = 0;
+  scoreElement.innerText = `Score: 0`;
   resetLives()
   startDiv.style = "display:none"
   getNewSong()
