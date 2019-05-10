@@ -21,6 +21,8 @@ const gameoverDiv = document.querySelector(".gameover");
 const lyricsDiv = document.querySelector(".lyrics")
 const line1 = document.querySelector("#line1")
 const line2 = document.querySelector("#line2")
+const line3 = document.querySelector("#line3")
+const line4 = document.querySelector("#line4")
 const test_title = document.querySelector("#test_title")
 const test_artist = document.querySelector("#test_artist")
 const form = document.querySelector("#form")
@@ -187,6 +189,9 @@ function populateLyrics() {
   splitSong = currentSong.content.split("\n")
   line1.innerText = `♪ ${splitSong[0]} ♪`
   line2.innerText = `♫ ${splitSong[1]} ♫`
+  line3.innerText = `♪ ${splitSong[2]} ♪`
+  line4.innerText = `♫ ${splitSong[3]} ♫`
+
 }
 
 function getNewSong() {
@@ -199,6 +204,8 @@ function getNewSong() {
     if (song.error) {
       line1.innerText = ""
       line2.innerText = ""
+      line3.innerText = ""
+      line4.innerText = ""
       warning.class = "warning"
       warning.innerText = "No more songs available"
       lyricsDiv.appendChild(warning)
