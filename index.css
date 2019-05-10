@@ -156,6 +156,25 @@
     background-color: #FFE66D;
 }
 
+
+#help-button {
+  /* float: right; */
+  margin-top: 5%;
+  left: 35%;
+  background-color: #FFE66D;
+
+}
+
+#game-help{
+  border-radius: 1em;
+  padding: 5%;
+  margin: 3%;
+}
+
+.footer{
+  bottom: 0%;
+}
+
 #playarea-padding {
     margin-left: 10%;
     padding-left: 3%;
@@ -177,3 +196,4 @@
     font-family: 'Crete Round', serif;
 
 }
+
