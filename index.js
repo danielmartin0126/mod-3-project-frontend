@@ -30,8 +30,11 @@ let warning = document.createElement("h2")
 let scoreElement = document.querySelector("#current_score")
 let hiScoreDiv = document.querySelector(".hiscores")
 let leaderDiv = document.querySelector("#leaders")
+const gameHelp = document.querySelector("#game-help");
+const helpButton = document.querySelector("#help-button")
 let scoreInputDiv = document.querySelector(".score-input")
 let bufferColumn = document.querySelector("#buffer-column")
+
 
 
 /*****************************************************************************
@@ -147,6 +150,11 @@ form.addEventListener("submit", function(e) {
     }
   }
 }) //end submit player answer event listener
+
+helpButton.addEventListener("click", function(e) {
+  e.preventDefault();
+  gameHelp.style.display === "none" ? gameHelp.style.display = "block" : gameHelp.style.display = "none";
+}) //end display insturcitons event listener
 
 /*******************************************************************************
 * Helper functions
