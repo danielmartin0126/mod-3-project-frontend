@@ -15,7 +15,7 @@
 <body>
   <div class="container ui grid turquoise">
     <div id="left-side-start-padding" class="start eleven wide ui column turquoise">
-      <div class="start">
+      <div class="start" align="center">
         <h1 align="center">♪ DANDRO 3000 ♫</h1>
         <div class="login mint-cream" align="center">
           <form id="login-form" class="ui form large">
@@ -23,6 +23,16 @@
             <input type="text" name="name" placeholder=""><br>
             <input id="submit-login" type="submit" value="Start Game" class="pastel-red ui button medium"><br>
           </form>
+          <div id="help-button" class="ui icon button" data-tooltip="Press for Game Instructions"
+            data-variation="wide" data-position="bottom center">
+            <i class="question circle icon"></i>
+          </div>
+        </div>
+        <div id="game-help" class="mint-cream" style="display:none">
+          <h3>Instructions</h3>
+          <p>Welcome to Our Game. The goal is to guess the song title and song artist based on the lyric snippets given.</p>
+          <p>You get: +50 for a song title and +50 for a song Artist.</p>
+          <p>You only need 1 to continue. See how long you can last!</p>
         </div>
       </div>
     </div>

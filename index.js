@@ -26,6 +26,9 @@ const line4 = document.querySelector("#line4")
 const test_title = document.querySelector("#test_title")
 const test_artist = document.querySelector("#test_artist")
 const form = document.querySelector("#form")
+const gameHelp = document.querySelector("#game-help");
+const helpButton = document.querySelector("#help-button")
+
 let warning = document.createElement("h2")
 let scoreElement = document.querySelector("#current_score")
 let hiScoreDiv = document.querySelector(".hiscores")
@@ -147,6 +150,11 @@ form.addEventListener("submit", function (e) {
     }
   }
 }) //end submit player answer event listener
+
+helpButton.addEventListener("click", function (e) {
+  e.preventDefault();
+  gameHelp.style.display === "none" ? gameHelp.style.display = "block" : gameHelp.style.display = "none";
+}) //end display insturcitons event listener
 
 /*******************************************************************************
 * Helper functions

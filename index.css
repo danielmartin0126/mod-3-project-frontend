@@ -177,3 +177,20 @@
     font-family: 'Crete Round', serif;
 
 }
+
+#help-button {
+  float: right;
+  right: 15%;
+  background-color: #FFE66D;
+}
+
+#game-help{
+  border-radius: 1em;
+  padding: 5%;
+  margin: 3%;
+}
+
+.footer{
+    width: 100%;
+  bottom: 0%;
+}
