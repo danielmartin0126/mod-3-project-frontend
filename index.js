@@ -9,7 +9,7 @@ const USERS_LYRICS_URL = "http://localhost:3000/api/v1/users";
 let data = ""
 let currentSong = ""
 let splitSong = []
-let currentUser = {current_score:0 , lives: 3}
+let currentUser = { current_score: 0, lives: 3 }
 let users = []
 let topTen = []
 
@@ -21,6 +21,8 @@ const gameoverDiv = document.querySelector(".gameover");
 const lyricsDiv = document.querySelector(".lyrics")
 const line1 = document.querySelector("#line1")
 const line2 = document.querySelector("#line2")
+const line3 = document.querySelector("#line3")
+const line4 = document.querySelector("#line4")
 const test_title = document.querySelector("#test_title")
 const test_artist = document.querySelector("#test_artist")
 const form = document.querySelector("#form")
@@ -28,11 +30,8 @@ let warning = document.createElement("h2")
 let scoreElement = document.querySelector("#current_score")
 let hiScoreDiv = document.querySelector(".hiscores")
 let leaderDiv = document.querySelector("#leaders")
-const gameHelp = document.querySelector("#game-help");
-const helpButton = document.querySelector("#help-button")
 let scoreInputDiv = document.querySelector(".score-input")
 let bufferColumn = document.querySelector("#buffer-column")
-
 
 
 /*****************************************************************************
@@ -78,8 +77,8 @@ function renderHiScores() {
     <div class="content gunmetal-text">
 
     <div class="description mint-cream">
-    <div class="ui grid" id="rank${i+1}">
-      <span class="column">${i+1}</span>
+    <div class="ui grid" id="rank${i + 1}">
+      <span class="column">${i + 1}</span>
       <span class="six wide column">${u.name}</span>
       <span class="column">${u.score}</span>
     </div>
@@ -100,7 +99,7 @@ fetchHiScores()
 /*****************************************************************************
 * Event Listeners
 ****************************************************************************/
-startDiv.addEventListener("submit", function(e) {
+startDiv.addEventListener("submit", function (e) {
   e.preventDefault()
   currentUser.name = e.target.name.value
   fetch(USERS_URL, {
@@ -110,12 +109,12 @@ startDiv.addEventListener("submit", function(e) {
     },
     body: JSON.stringify(currentUser)
   })
-  .then(response => response.json())
-  .then(response => currentUser ={...currentUser, ...response})
-  .then(startGame) //end of POST new User FETCH
+    .then(response => response.json())
+    .then(response => currentUser = { ...currentUser, ...response })
+    .then(startGame) //end of POST new User FETCH
 }) //end submit username input event listener
 
-form.addEventListener("submit", function(e) {
+form.addEventListener("submit", function (e) {
   e.preventDefault()
   let points = document.createElement("h5")
   points.innerText = "+50"
@@ -143,16 +142,11 @@ form.addEventListener("submit", function(e) {
     removeLife()
     if (currentUser.lives === 0) {
       endGame()
-    } else{
+    } else {
       getNewSong()
     }
   }
 }) //end submit player answer event listener
-
-helpButton.addEventListener("click", function(e) {
-  e.preventDefault();
-  gameHelp.style.display === "none" ? gameHelp.style.display = "block" : gameHelp.style.display = "none";
-}) //end display insturcitons event listener
 
 /*******************************************************************************
 * Helper functions
@@ -174,6 +168,8 @@ function resetLives() {
 
 function startGame() {
   currentUser.lives = 3
+  currentUser.current_score = 0;
+  scoreElement.innerText = `Score: 0`;
   resetLives()
   startDiv.style = "display:none"
   getNewSong()
@@ -187,29 +183,34 @@ function populateLyrics() {
   splitSong = currentSong.content.split("\n")
   line1.innerText = `♪ ${splitSong[0]} ♪`
   line2.innerText = `♫ ${splitSong[1]} ♫`
+  line3.innerText = `♪ ${splitSong[2]} ♪`
+  line4.innerText = `♫ ${splitSong[3]} ♫`
+
 }
 
 function getNewSong() {
   form.reset()
   //   currentSong = data[Math.floor(Math.random() * data.length)];
-  fetch(LYRICS_URL+`/${currentUser.id}/new_song`)
-  .then(response => response.json())
-  .then(song => {
-    console.log(song)
-    if (song.error) {
-      line1.innerText = ""
-      line2.innerText = ""
-      warning.class = "warning"
-      warning.innerText = "No more songs available"
-      lyricsDiv.appendChild(warning)
-      setTimeout(endGame,4000)
+  fetch(LYRICS_URL + `/${currentUser.id}/new_song`)
+    .then(response => response.json())
+    .then(song => {
+      console.log(song)
+      if (song.error) {
+        line1.innerText = ""
+        line2.innerText = ""
+        line3.innerText = ""
+        line4.innerText = ""
+        warning.class = "warning"
+        warning.innerText = "No more songs available"
+        lyricsDiv.appendChild(warning)
+        setTimeout(endGame, 4000)
 
-    }
-    else {
-      currentSong = song
-      populateLyrics()
-    }
-  })
+      }
+      else {
+        currentSong = song
+        populateLyrics()
+      }
+    })
   //   populateLyrics()
 }
 
@@ -217,17 +218,17 @@ function endGame() {
   warning.remove()
   if (currentUser.current_score > currentUser.score) {
     currentUser.score = currentUser.current_score;
-    fetch(USERS_URL+`/${currentUser.id}`, {
+    fetch(USERS_URL + `/${currentUser.id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(currentUser)
     })
-    .then(resp => {
-      fetchHiScores()
-      renderHiScores()
-    })
+      .then(resp => {
+        fetchHiScores()
+        renderHiScores()
+      })
   }
   playareaDiv.style.display = "none";
   gameoverDiv.style.display = "block";
