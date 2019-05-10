@@ -115,7 +115,7 @@
 }
 
 #label-login{
-    /* padding: 2em; */
+    padding: 1em;
     display: block;
 }
 
@@ -159,4 +159,22 @@
 
 #home-button {
     background-color: #FFE66D;
+}
+
+#help-button {
+  /* float: right; */
+  margin-top: 5%;
+  left: 35%;
+  background-color: #FFE66D;
+
+}
+
+#game-help{
+  border-radius: 1em;
+  padding: 5%;
+  margin: 3%;
+}
+
+.footer{
+  bottom: 0%;
 }

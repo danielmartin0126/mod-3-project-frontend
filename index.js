@@ -151,8 +151,8 @@ form.addEventListener("submit", function(e) {
 
 helpButton.addEventListener("click", function(e) {
   e.preventDefault();
-  gameHelp.style.display = "block";
-})
+  gameHelp.style.display === "none" ? gameHelp.style.display = "block" : gameHelp.style.display = "none";
+}) //end display insturcitons event listener
 
 /*******************************************************************************
 * Helper functions

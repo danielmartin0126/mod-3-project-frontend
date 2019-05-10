@@ -9,7 +9,7 @@
   <script src="https://code.jquery.com/jquery-3.1.1.min.js"
   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
   <script src="semantic/dist/semantic.min.js"></script>
-<link href="https://fonts.googleapis.com/css?family=Baloo+Bhai|Crete+Round|Indie+Flower" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai|Crete+Round|Indie+Flower" rel="stylesheet">
 </head>
 
 <body>
@@ -18,21 +18,24 @@
       <div class="start" >
         <h1 align="center">NAME OF THE GAME</h1>
         <div class="login mint-cream" align="center">
+
           <form id="login-form" class="ui form large">
             <label id="label-login" class="label" for="name">Enter Username</label>
             <input type="text" name="name" placeholder=""><br>
             <input id="submit-login" type="submit" value="Start Game" class="pastel-red ui button medium"><br>
           </form>
-        </div>
-<!-- Welcome to Our Game.\n The goal is to guess the song title and song artist based on the lyric snippets given. \nYou get: \n+50 for a song title and \n+50 for a song Artist.\n You only need 1 to continue. \nSee how long you can last! -->
-        <div id="help-button" class="ui icon button" data-tooltip="Press for Game Instructions" data-variation="very wide" data-position="top center">
-          <i class="question circle icon"></i>
+
+          <div id="help-button" align="right" class="ui icon button" data-tooltip="Press for Game Instructions" data-variation="wide" data-position="bottom center">
+            <i class="question circle icon"></i>
+          </div>
+
         </div>
 
-        <div id="game-help" class="">
-          <p>Welcome to Our Game.\n The goal is to guess the song title and song artist based on the lyric snippets given.</p>
-          <p>You get: \n+50 for a song title and \n+50 for a song Artist.</p>
-          <p>\n You only need 1 to continue. \nSee how long you can last!</p>
+        <div id="game-help" class="mint-cream" style="display:none">
+          <h3>Instructions</h3>
+          <p>Welcome to Our Game. The goal is to guess the song title and song artist based on the lyric snippets given.</p>
+          <p>You get: +50 for a song title and +50 for a song Artist.</p>
+          <p>\n You only need 1 to continue. See how long you can last!</p>
         </div>
 
       </div>
@@ -46,15 +49,15 @@
             <img class="hearts" id="heart2" src="assets/heart-full.png"></img>
             <img class="hearts" id="heart3" src="assets/heart-full.png"></img>
           </div>
-              <div class="score right floated column">
-                <h3 id="current_score">Score</h3>
-              </div>
+          <div class="score right floated column">
+            <h3 id="current_score">Score</h3>
+          </div>
         </div>
-        </div>
-        <div class="lyrics ui">
-          <h2 id="line1"></h2>
-          <h2 id="line2"></h2>
-        </div>
+      </div>
+      <div class="lyrics ui">
+        <h2 id="line1"></h2>
+        <h2 id="line2"></h2>
+      </div>
       <div class="inputs">
         <form class="ui massive form" id="form">
           <div class="two fields">
@@ -78,13 +81,15 @@
         <div class="ui cards" id="leaders"></div>
       </div>
     </div>
+    <div class="footer turquoise sixteen wide column">
+      Created By: Alejandro and Danny 2019
+    </div>
   </div>
   <script src="index.js"></script>
 </body>
 
 <footer>
-  <div class="Footer">
-  </div>
+
 </footer>
 
 </html>
