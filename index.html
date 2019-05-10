@@ -7,71 +7,61 @@
   <link rel="stylesheet" type="text/css" href="index.css" />
   <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
   <script src="https://code.jquery.com/jquery-3.1.1.min.js"
-  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
   <script src="semantic/dist/semantic.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai|Crete+Round|Indie+Flower" rel="stylesheet">
 </head>
 
 <body>
-  <div class="container ui grid">
+  <div class="container ui grid turquoise">
     <div id="left-side-start-padding" class="start eleven wide ui column turquoise">
-      <div class="start" >
-        <h1 align="center">NAME OF THE GAME</h1>
+      <div class="start">
+        <h1 align="center">♪ DANDRO 3000 ♫</h1>
         <div class="login mint-cream" align="center">
-
           <form id="login-form" class="ui form large">
             <label id="label-login" class="label" for="name">Enter Username</label>
             <input type="text" name="name" placeholder=""><br>
             <input id="submit-login" type="submit" value="Start Game" class="pastel-red ui button medium"><br>
           </form>
-
-          <div id="help-button" align="right" class="ui icon button" data-tooltip="Press for Game Instructions" data-variation="wide" data-position="bottom center">
-            <i class="question circle icon"></i>
-          </div>
-
         </div>
-
-        <div id="game-help" class="mint-cream" style="display:none">
-          <h3>Instructions</h3>
-          <p>Welcome to Our Game. The goal is to guess the song title and song artist based on the lyric snippets given.</p>
-          <p>You get: +50 for a song title and +50 for a song Artist.</p>
-          <p>You only need 1 to continue. See how long you can last!</p>
-        </div>
-
       </div>
     </div>
     <div class="gameover eleven wide column pastel-red" style="display:none; padding-left: 10%;"></div>
-    <div class="playarea eleven wide column" style="display:none">
-      <div class="ui grid">
-        <div class="stats row">
-          <div class="incorrect left floated columns">
-            <img class="hearts" id="heart1" src="assets/heart-full.png"></img>
-            <img class="hearts" id="heart2" src="assets/heart-full.png"></img>
-            <img class="hearts" id="heart3" src="assets/heart-full.png"></img>
-          </div>
-          <div class="score right floated column">
-            <h3 id="current_score">Score</h3>
+    <div class="playarea eleven wide column turquoise" style="display:none">
+      <div id="playarea-padding" class="mint-cream">
+        <div class="ui grid">
+          <div class="stats row">
+            <div class="incorrect left floated columns">
+              <img class="hearts" id="heart1" src="assets/heart-full.png"></img>
+              <img class="hearts" id="heart2" src="assets/heart-full.png"></img>
+              <img class="hearts" id="heart3" src="assets/heart-full.png"></img>
+            </div>
+            <div class="score right floated column">
+              <h3 id="current_score">Score</h3>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="lyrics ui">
-        <h2 id="line1"></h2>
-        <h2 id="line2"></h2>
-      </div>
-      <div class="inputs">
-        <form class="ui massive form" id="form">
-          <div class="two fields">
-            <div class="field title-input">
-              <label for="title">Song Title</label>
-              <input type="text" name="title">
+        <div class="lyrics ui">
+          <h2 class="gunmetal-text" id="line1"></h2>
+          <h2 class="gunmetal-text" id="line2"></h2>
+          <h2 class="gunmetal-text" id="line3"></h2>
+          <h2 class="gunmetal-text" id="line4"></h2>
+        </div>
+        <div class="inputs">
+          <form class="ui massive form" id="form">
+            <div class="two fields">
+              <div class="field title-input">
+                <label id="lyric1" for="title">Song Title</label>
+                <input type="text" name="title">
+              </div>
+              <div class="field artist-input">
+                <label id="lyric2" for="artist">Artist</label>
+                <input type="text" name="artist">
+              </div>
             </div>
-            <div class="field artist-input">
-              <label for="artist">Artist</label>
-              <input type="text" name="artist">
-            </div>
-          </div>
-          <input type="submit" id="submit" value="Submit" class="ui submit button large maize">
-        </form>
+            <input type="submit" id="submit" value="Submit" class="ui submit button large maize">
+          </form>
+        </div>
       </div>
     </div>
     <div id="buffer-column" class="one wide column right floated turquoise"> </div>
@@ -81,15 +71,13 @@
         <div class="ui cards" id="leaders"></div>
       </div>
     </div>
-    <div class="footer turquoise">
-      Created By: Alejandro and Danny 2019
-    </div>
   </div>
   <script src="index.js"></script>
 </body>
 
 <footer>
-
+  <div class="Footer">
+  </div>
 </footer>
 
 </html>
