@@ -13,7 +13,7 @@
 </head>
 
 <body>
-  <div class="container ui grid">
+  <div class="container ui grid turquoise">
     <div id="left-side-start-padding" class="start eleven wide ui column turquoise">
       <div class="start" >
         <h1 align="center">NAME OF THE GAME</h1>
@@ -41,7 +41,8 @@
       </div>
     </div>
     <div class="gameover eleven wide column pastel-red" style="display:none; padding-left: 10%;"></div>
-    <div class="playarea eleven wide column" style="display:none">
+    <div class="playarea eleven wide column turquoise" style="display:none">
+      <div id="playarea-padding" class="mint-cream">
       <div class="ui grid">
         <div class="stats row">
           <div class="incorrect left floated columns">
@@ -49,9 +50,14 @@
             <img class="hearts" id="heart2" src="assets/heart-full.png"></img>
             <img class="hearts" id="heart3" src="assets/heart-full.png"></img>
           </div>
-          <div class="score right floated column">
-            <h3 id="current_score">Score</h3>
-          </div>
+              <div class="score right floated column">
+                <h3 id="current_score">Score</h3>
+              </div>
+        </div>
+        </div>
+        <div class="lyrics ui">
+          <h2 class="gunmetal-text" id="line1"></h2>
+          <h2 class="gunmetal-text" id="line2"></h2>
         </div>
       </div>
       <div class="lyrics ui">
@@ -62,16 +68,17 @@
         <form class="ui massive form" id="form">
           <div class="two fields">
             <div class="field title-input">
-              <label for="title">Song Title</label>
+              <label id="lyric1" for="title">Song Title</label>
               <input type="text" name="title">
             </div>
             <div class="field artist-input">
-              <label for="artist">Artist</label>
+              <label id="lyric2" for="artist">Artist</label>
               <input type="text" name="artist">
             </div>
           </div>
           <input type="submit" id="submit" value="Submit" class="ui submit button large maize">
         </form>
+      </div>
       </div>
     </div>
     <div id="buffer-column" class="one wide column right floated turquoise"> </div>

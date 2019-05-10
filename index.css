@@ -4,12 +4,10 @@
 
 }
 .container {
-    border: 1px solid black;
     width: 600px;
 }
 
 .playarea {
-    border: 1px solid black;
     margin-top: 10%;
     margin-bottom: 30%;
 }
@@ -20,18 +18,15 @@
 }
 
 .lyrics {
-    border: 1px solid black;
     margin-bottom: 7%;
     margin-top: 7%;
 
 }
 
 .inputs {
-    border: 1px solid black;
 }
 .incorrect {
-    border-style: solid;
-    border-color: red;
+ 
 }
 
 .hearts {
@@ -161,6 +156,7 @@
     background-color: #FFE66D;
 }
 
+
 #help-button {
   /* float: right; */
   margin-top: 5%;
@@ -178,3 +174,26 @@
 .footer{
   bottom: 0%;
 }
+
+#playarea-padding {
+    margin-left: 10%;
+    padding-left: 3%;
+    border-radius: 1em;
+    padding-right: 3%;
+    padding-bottom: 3%;
+}
+
+#lyric1 {
+    color: #292F36;
+}
+#lyric2 {
+    color: #292F36;
+}
+
+#submit {
+    background-color: #FF6B6B;
+    color: #F7FFF7;
+    font-family: 'Crete Round', serif;
+
+}
+
